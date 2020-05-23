@@ -1,0 +1,17 @@
+#Install tomcat and download benefits.war file and copy on remote machine.
+---
+- hosts: all
+  gather_facts: False
+  tasks:
+  - name: install Tomcat.
+    yum:
+      name: tomcat
+      state: latest
+  - name: Tomcat service start
+    service:
+      name: tomcat
+      state: started
+  - name: download benefits.war file
+    get_url:
+      url: https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/03-DeployApps/files/benefits.war
+      dest: /usr/share/tomcat/webapps/benefits.war

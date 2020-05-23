@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+  - name: Using template module
+    template:
+      src: /tmp/xyz.conf.j2
+      dest: /tmp/xyz.conf

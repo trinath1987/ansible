@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+  - name: install httpd package.
+    yum:
+      name=httpd
+      state=latest
+  - name: service httpd start package
+    service:
+      name=httpd
+      state=started
+  - name: Coping index.html file in webserver.
+    copy:
+      src: /tmp/index.html
+      dest: /var/www/html/
